@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orbee360 — Proposta ADP Engenharia</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;600;800&display=swap');
+        body { font-family: 'Urbanist', sans-serif; background-color: #0a0a0a; color: #e5e7eb; margin: 0; overflow: hidden; }
+        .slide { display: none; position: relative; height: 100vh; height: 100dvh; width: 100vw; padding: 1.5rem; padding-top: 5rem; padding-bottom: 5rem; flex-direction: column; justify-content: center; align-items: center; text-align: center; overflow-y: auto; box-sizing: border-box; -webkit-overflow-scrolling: touch; }
+        .slide-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+        .slide-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.83); z-index: 1; }
+        .slide > *:not(.slide-bg):not(.slide-overlay) { position: relative; z-index: 2; }
+        .slide.active { display: flex; animation: fadeIn 0.6s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .accent-red { color: #ef4444; }
+        .accent-orange { color: #f97316; }
+        .bg-card { background: rgba(23, 23, 23, 0.8); border: 1px solid rgba(255, 255, 255, 0.05); border-radius: 1.5rem; backdrop-filter: blur(12px); padding: 1.5rem; }
+        .nav-btn { background: #1a1a1a; padding: 0.75rem; border-radius: 1.2rem; transition: all 0.2s; border: 1px solid #333; }
+        .nav-btn:hover { background: #262626; transform: scale(1.05); border-color: #ef4444; }
+        .pill-service { padding: 0.6rem 1rem; border-radius: 1rem; border-left: 5px solid #ef4444; background: rgba(239, 68, 68, 0.08); text-align: left; }
+        .table-row { display: grid; grid-template-columns: 1.4fr 2fr 1fr; gap: 0.5rem; align-items: center; padding: 0.8rem 1rem; border-radius: 1rem; }
+        .table-head { background: rgba(239, 68, 68, 0.18); border: 1px solid rgba(239, 68, 68, 0.3); }
+        .table-body { background: rgba(23, 23, 23, 0.9); border: 1px solid rgba(255,255,255,0.06); }
+        .table-body:nth-child(even) { background: rgba(35, 35, 35, 0.9); }
+        .icon-box { width: 52px; height: 52px; border-radius: 1rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+        /* Nano Banana character */
+        .nano { font-size: 3.5rem; line-height: 1; }
+
+        @media (min-width: 768px) {
+            .slide { padding: 3rem; padding-top: 4rem; }
+            .bg-card { border-radius: 2rem; padding: 2.5rem; }
+            .nav-btn { padding: 1rem; }
+            .nano { font-size: 5rem; }
+        }
+        @media (min-width: 1024px) {
+            .slide { padding: 4rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo Fixo -->
+    <div class="fixed top-4 left-4 md:top-8 md:left-8 z-50">
+        <img src="logo.png" alt="Orbee360 Logo" class="h-12 w-12 md:h-20 md:w-20 object-contain drop-shadow-2xl">
+    </div>
+
+    <!-- ===== SLIDE 1: CAPA ===== -->
+    <div class="slide active" id="slide1">
+        <img class="slide-bg" src="bg_slide1.png" alt="">
+        <div class="slide-overlay"></div>
+        <div class="space-y-5 max-w-4xl mx-auto">
+            <div class="flex justify-center">
+                <span class="nano" role="img" aria-label="foguete">🚀</span>
+            </div>
+            <p class="text-red-500 font-bold tracking-[0.3em] uppercase text-xs md:text-sm">Domine a sua Região</p>
+            <h1 class="text-4xl sm:text-5xl md:text-7xl font-black leading-tight">
+                Orbee<span class="accent-red">360</span>
+            </h1>
+            <div class="h-1 w-24 bg-red-600 mx-auto"></div>
+            <p class="text-xl md:text-3xl font-semibold text-white">Domine a sua Região no Google</p>
+            <p class="text-base md:text-lg text-gray-400 font-light max-w-2xl mx-auto leading-relaxed">
+                A Orbee360 vai transformar a presença digital do seu negócio. Somos uma agência focada em Reputação Digital e especialistas certificados pelo Google.
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 2: OBJETIVO ===== -->
+    <div class="slide" id="slide2">
+        <img class="slide-bg" src="bg_slide2.png" alt="">
+        <div class="slide-overlay"></div>
+        <div class="text-center space-y-6 md:space-y-8 px-2 max-w-4xl mx-auto">
+            <div class="flex justify-center">
+                <span class="text-6xl md:text-8xl" role="img" aria-label="alvo">🎯</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-black">Nosso <span class="accent-red">Objetivo</span></h2>
+            <p class="text-lg md:text-2xl text-gray-300 leading-relaxed font-light">
+                Tirar sua empresa do "anonimato" e colocá-la como a escolha <strong class="text-white text-3xl">número 1</strong> de quem busca seus serviços no Google.
+            </p>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 3: O QUE FAZEMOS ===== -->
+    <div class="slide" id="slide3">
+        <img class="slide-bg" src="bg_slide3.png" alt="">
+        <div class="slide-overlay"></div>
+        <h2 class="text-2xl md:text-4xl font-bold mb-5 md:mb-8 text-left w-full max-w-6xl border-l-4 md:border-l-8 border-red-600 pl-4 md:pl-6">
+            O que a Orbee360 <span class="accent-red">faz por você?</span>
+        </h2>
+        <p class="text-gray-400 text-sm md:text-base mb-6 max-w-6xl text-left w-full">
+            Não apenas "ajustamos" seu perfil; nós <strong class="text-white">gerenciamos sua autoridade digital de ponta a ponta</strong>:
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full max-w-6xl">
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-red-600/20"><i class="fa-brands fa-google text-red-500 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Gestão de Perfil Google</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Deixamos sua ficha 100% otimizada e atraente.</p>
+                </div>
+            </div>
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-purple-600/20"><i class="fa-solid fa-arrow-trend-up text-purple-400 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Ranking & Nota</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Utilizamos ferramentas exclusivas de pontuação para elevar seu posicionamento e sua nota média no Google.</p>
+                </div>
+            </div>
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-blue-600/20"><i class="fa-solid fa-comments text-blue-400 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Engajamento Total</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Respondemos todas as avaliações dos clientes e realizamos publicações diárias no seu perfil.</p>
+                </div>
+            </div>
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-amber-600/20"><i class="fa-solid fa-nfc-symbol text-amber-400 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Tecnologia NFC (Chip de Aproximação)</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Entregamos chips de aproximação. O cliente encosta o celular e cai direto na sua página de avaliação. Prático e rápido!</p>
+                </div>
+            </div>
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-green-600/20"><i class="fa-solid fa-robot text-green-400 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Conteúdo com IA</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Criação de imagens e vídeos de alta qualidade gerados por Inteligência Artificial para destacar seu negócio.</p>
+                </div>
+            </div>
+            <div class="bg-card flex items-start gap-3 md:gap-4 text-left">
+                <div class="icon-box bg-indigo-600/20"><i class="fa-solid fa-vr-cardboard text-indigo-400 text-xl md:text-2xl"></i></div>
+                <div>
+                    <h3 class="font-bold text-sm md:text-base mb-1">Tour Virtual 360º e Transparência</h3>
+                    <p class="text-gray-500 text-xs md:text-sm">Levamos o cliente para dentro do seu estabelecimento e entregamos relatórios mensais detalhados.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 4: CASE DE SUCESSO ===== -->
+    <div class="slide" id="slide4">
+        <img class="slide-bg" src="bg_slide4.png" alt="">
+        <div class="slide-overlay"></div>
+        <h2 class="text-2xl md:text-4xl font-bold mb-4 md:mb-6 text-left w-full max-w-5xl border-l-4 md:border-l-8 border-amber-500 pl-4 md:pl-6 text-amber-400">
+            🏆 Case de Sucesso: Família Presto
+        </h2>
+        <p class="text-gray-300 text-sm md:text-base mb-5 max-w-5xl text-left w-full leading-relaxed">
+            Veja os resultados que alcançamos em <strong class="text-white">apenas 3 meses</strong> para provar que nosso método funciona na prática:
+        </p>
+        
+        <div class="w-full max-w-5xl grid grid-cols-2 md:grid-cols-5 gap-3 md:gap-4 mb-5">
+            <div class="bg-card text-center py-4 border-t-2 border-amber-500">
+                <p class="text-xl md:text-3xl font-black text-white">75→95</p>
+                <p class="text-gray-400 text-xs mt-1">Salto na Reputação</p>
+            </div>
+            <div class="bg-card text-center py-4 border-t-2 border-amber-500">
+                <p class="text-xl md:text-3xl font-black text-white">99</p>
+                <p class="text-gray-400 text-xs mt-1">Posts por Mês</p>
+            </div>
+            <div class="bg-card text-center py-4 border-t-2 border-amber-500">
+                <p class="text-xl md:text-3xl font-black text-white">99,4%</p>
+                <p class="text-gray-400 text-xs mt-1">Taxa de Resposta</p>
+            </div>
+            <div class="bg-card text-center py-4 border-t-2 border-amber-500">
+                <p class="text-xl md:text-3xl font-black text-white">32k+</p>
+                <p class="text-gray-400 text-xs mt-1">Visibilidade</p>
+            </div>
+            <div class="bg-card text-center py-4 border-t-2 border-amber-500 col-span-2 md:col-span-1">
+                <p class="text-xl md:text-3xl font-black text-white">9,1%</p>
+                <p class="text-gray-400 text-xs mt-1">CTR de Engajamento</p>
+            </div>
+        </div>
+
+        <div class="w-full max-w-5xl bg-gradient-to-r from-amber-900/40 to-amber-600/10 border border-amber-500/30 rounded-2xl p-4 md:p-6 text-left">
+            <h3 class="font-bold text-amber-400 mb-3 text-lg">O resultado final em conversões reais:</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-map-location-dot text-amber-500 text-xl mt-1"></i>
+                    <div>
+                        <p class="font-black text-white text-lg">1.3K Pedidos de Rota</p>
+                        <p class="text-gray-400 text-xs">Pessoas que pediram direção para ir até a pizzaria.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-phone text-amber-500 text-xl mt-1"></i>
+                    <div>
+                        <p class="font-black text-white text-lg">965 Chamadas Diretas</p>
+                        <p class="text-gray-400 text-xs">Média de 241 pedidos por telefone/mês.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-3">
+                    <i class="fa-solid fa-mouse-pointer text-amber-500 text-xl mt-1"></i>
+                    <div>
+                        <p class="font-black text-white text-lg">732 Cliques no Site</p>
+                        <p class="text-gray-400 text-xs">Público qualificado buscando o cardápio e a casa.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4 pt-3 border-t border-amber-500/20 text-center">
+                <p class="text-lg md:text-xl font-bold text-white">Total: <span class="text-amber-400">2.997 Oportunidades de Venda</span> geradas no período!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 5: BÔNUS ===== -->
+    <div class="slide" id="slide5">
+        <img class="slide-bg" src="bg_slide5.png" alt="">
+        <div class="slide-overlay"></div>
+        <div class="text-center space-y-6 md:space-y-8 px-2 max-w-4xl mx-auto">
+            <div class="flex justify-center">
+                <span style="font-size:5rem; line-height:1;" role="img" aria-label="presente">🎁</span>
+            </div>
+            <h2 class="text-3xl md:text-6xl font-black text-blue-400">Bônus Exclusivo</h2>
+            <h3 class="text-2xl md:text-4xl font-bold text-white uppercase tracking-widest">Plano de 6 Meses</h3>
+            <p class="text-base md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                Ao fechar o plano semestral, você ganha a <strong class="text-white">construção de um site profissional com hospedagem gratuita</strong> durante todo o período.
+            </p>
+            <div class="inline-block bg-blue-600/20 border border-blue-500/50 rounded-2xl px-6 py-4">
+                <p class="text-blue-300 font-semibold text-lg">É a sua vitrine completa na internet sem custos extras!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 6: INVESTIMENTO ===== -->
+    <div class="slide" id="slide6">
+        <img class="slide-bg" src="bg_slide6.png" alt="">
+        <div class="slide-overlay"></div>
+        <h2 class="text-2xl md:text-4xl font-bold mb-5 md:mb-8 text-left w-full max-w-4xl border-l-4 md:border-l-8 border-green-500 pl-4 md:pl-6">
+            💳 <span class="text-green-400">Investimento</span>
+        </h2>
+        
+        <p class="text-gray-300 text-sm md:text-base mb-8 max-w-4xl text-left w-full">
+            Trabalhamos com foco em resultados de médio e longo prazo para consolidar sua reputação.
+        </p>
+
+        <div class="w-full max-w-4xl flex flex-col md:flex-row gap-6 justify-center">
+            <div class="bg-card w-full md:w-1/2 border border-green-500/30 text-center py-8">
+                <p class="text-green-400 font-bold uppercase tracking-widest mb-2 text-sm">Plano de 6 Meses</p>
+                <div class="flex items-end justify-center gap-1 mb-2">
+                    <span class="text-xl text-gray-400">R$</span>
+                    <span class="text-5xl font-black text-white leading-none">550</span>
+                    <span class="text-lg text-gray-400">,00 /mês</span>
+                </div>
+                <p class="text-gray-500 text-sm mt-4">Total do projeto: R$ 3.300,00</p>
+            </div>
+            
+            <div class="bg-card w-full md:w-1/2 flex flex-col justify-center text-left">
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="w-12 h-12 rounded-full bg-blue-600/20 flex items-center justify-center shrink-0">
+                        <i class="fa-regular fa-credit-card text-blue-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-white text-lg">Facilidade no Pagamento</h4>
+                        <p class="text-gray-400 text-sm">Para sua comodidade, o valor total pode ser parcelado em até <strong class="text-white">12x no cartão de crédito</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== SLIDE 7: FECHAMENTO ===== -->
+    <div class="slide" id="slide7">
+        <img class="slide-bg" src="bg_slide7.png" alt="">
+        <div class="slide-overlay"></div>
+        <div class="text-center space-y-6 md:space-y-8 px-2 max-w-4xl mx-auto">
+            <h1 class="text-3xl sm:text-4xl md:text-6xl font-black leading-tight">
+                Vamos colocar sua empresa no topo? <span class="text-red-500">🎯</span>
+            </h1>
+            <p class="text-base md:text-xl text-gray-300 max-w-xl mx-auto leading-relaxed">
+                Aguardamos seu contato para iniciarmos a transformação do seu posicionamento digital hoje mesmo!
+            </p>
+            
+            <div class="bg-card p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 mt-8 max-w-3xl mx-auto border border-gray-700 text-left">
+                <div class="w-24 h-24 rounded-full bg-gray-800 flex items-center justify-center shrink-0 border-2 border-red-500 overflow-hidden">
+                    <i class="fa-solid fa-user-tie text-4xl text-gray-400"></i>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-1">André Sugai</h3>
+                    <p class="text-red-400 font-semibold mb-4 text-sm">Especialista em Reputação Digital | Orbee360</p>
+                    
+                    <div class="space-y-2 text-sm text-gray-300">
+                        <p><i class="fa-solid fa-globe w-6 text-gray-500"></i> <a href="https://orbee360.com.br" target="_blank" class="hover:text-red-400 transition">orbee360.com.br</a></p>
+                        <p><i class="fa-brands fa-instagram w-6 text-gray-500"></i> <a href="https://instagram.com/orbee360" target="_blank" class="hover:text-red-400 transition">@orbee360</a></p>
+                        <p><i class="fa-brands fa-whatsapp w-6 text-gray-500"></i> (11) 99531-3856 / (11) 98747-1503</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="text-sm text-gray-500 mt-6 font-semibold tracking-widest uppercase">
+                Equipe Orbee360 | Certificados Google | Especialistas em Reputação
+            </p>
+        </div>
+    </div>
+
+    <!-- Navegação -->
+    <div class="fixed bottom-4 right-4 md:bottom-10 md:right-10 flex gap-2 md:gap-4 items-center z-50">
+        <button onclick="prevSlide()" class="nav-btn">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7"></path></svg>
+        </button>
+        <div class="px-4 py-1.5 md:px-6 md:py-2 bg-slate-900 border border-slate-800 rounded-full font-bold text-slate-400 min-w-[80px] md:min-w-[100px] text-center text-sm md:text-base">
+            <span id="slideCounter">1</span> / 7
+        </div>
+        <button onclick="nextSlide()" class="nav-btn bg-red-600 hover:bg-red-500 text-white">
+            <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+        </button>
+    </div>
+
+    <script>
+        let currentSlide = 1;
+        const totalSlides = 7;
+        function updateSlide() {
+            document.querySelectorAll('.slide').forEach((s, i) => {
+                s.classList.remove('active');
+                if (i + 1 === currentSlide) s.classList.add('active');
+            });
+            document.getElementById('slideCounter').innerText = currentSlide;
+        }
+        function nextSlide() { if (currentSlide < totalSlides) { currentSlide++; updateSlide(); } }
+        function prevSlide() { if (currentSlide > 1) { currentSlide--; updateSlide(); } }
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+            if (e.key === 'ArrowLeft') prevSlide();
+        });
+
+        // Touch/swipe support
+        let touchStartX = 0;
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        document.addEventListener('touchend', (e) => {
+            const diffX = touchStartX - e.changedTouches[0].screenX;
+            const diffY = touchStartY - e.changedTouches[0].screenY;
+            if (Math.abs(diffX) > 50 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+                if (diffX > 0) nextSlide();
+                else prevSlide();
+            }
+        }, { passive: true });
+    </script>
+</body>
+</html>
